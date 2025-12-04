@@ -39,3 +39,9 @@ Instalando e configurando o Prisma
 4-Configurar arquivo env  (variavel de ambiente)
 5- "tsx watch --env-file .env src/server.ts" Adicionar variavel de ambiente no script de inicilização  
 6-Colocar .env dentro do gitignore
+
+Definindo as tabelas do Banco de dados
+1- Abrir o arquivo schema.prisma
+2- npx prisma migrate dev (Gerando as tabelas gerando as migrates)
+3- npx prisma studio
+
