@@ -51,7 +51,9 @@ Cadastro do Usuário
 1- Importar zod para fazer validação(user-controller) e criar bodySchema
 2- npm install bcrypt (Criptografar a senha do usuário)
    npm i --save-dev @types/bcrypt  (Tipagem)
-3- importar bcrypt no controller
+3- importar bcrypt no controller e configuar hash
+4- Criar pasta database dentro de SRC Colocar configurações de conexão com o Prisma
+
 
 
 
