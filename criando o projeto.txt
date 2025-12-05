@@ -45,3 +45,10 @@ Definindo as tabelas do Banco de dados
 2- npx prisma migrate dev (Gerando as tabelas gerando as migrates)
 3- npx prisma studio
 
+*USUARIOS*
+
+Cadastro do Usuário 
+1- Importar zod para fazer validação(user-controller)
+
+
+
