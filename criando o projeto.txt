@@ -48,7 +48,11 @@ Definindo as tabelas do Banco de dados
 *USUARIOS*
 
 Cadastro do Usuário 
-1- Importar zod para fazer validação(user-controller)
+1- Importar zod para fazer validação(user-controller) e criar bodySchema
+2- npm install bcrypt (Criptografar a senha do usuário)
+   npm i --save-dev @types/bcrypt  (Tipagem)
+3- importar bcrypt no controller
+
 
 
 
