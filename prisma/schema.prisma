@@ -1,65 +1,61 @@
-
-
 generator client {
   provider = "prisma-client-js"
-  
 }
 
 datasource db {
   provider = "postgresql"
-
 }
 
-enum UserRole{
+enum UserRole {
   customer //cliente
   sale // vendedor
 }
 
-enum DeliveryStatus{
+enum DeliveryStatus {
   processing
   shipped
   delivered
 }
-model User{
-  id String @id @default(uuid())
-  name String
-  email String
+
+model User {
+  id       String   @id @default(uuid())
+  name     String
+  email    String   @unique
   password String
-  role UserRole @default(customer)
+  role     UserRole @default(customer)
 
   deliveries Delivery[]
 
-  createdAt DateTime @default(now())@map("created_at")
+  createdAt DateTime  @default(now()) @map("created_at")
   updatedAt DateTime? @updatedAt @map("updated_at")
 
-@@map("users")
+  @@map("users")
 }
 
-model Delivery{
-  id String @id @default(uuid())
-  userId String @map("user_id")
+model Delivery {
+  id          String @id @default(uuid())
+  userId      String @map("user_id")
   description String
 
-  status DeliveryStatus @default(processing) 
+  status DeliveryStatus @default(processing)
 
-  user User @relation(fields: [userId],references: [id])
+  user User          @relation(fields: [userId], references: [id])
   logs DeliveryLog[]
 
-  createdAt DateTime @default(now())@map("created_at")
+  createdAt DateTime  @default(now()) @map("created_at")
   updatedAt DateTime? @updatedAt @map("updated_at")
 
-  
-  @@map ("deliveries")
+  @@map("deliveries")
 }
 
-model DeliveryLog{
-  id String @id @default(uuid())
+model DeliveryLog {
+  id          String @id @default(uuid())
   description String
-  deliveryId String @map("delivery_id")
+  deliveryId  String @map("delivery_id")
 
-  delivery Delivery @relation(fields: [deliveryId],references: [id])
+  delivery Delivery @relation(fields: [deliveryId], references: [id])
 
-  createdAt DateTime @default(now())@map("created_at")
+  createdAt DateTime  @default(now()) @map("created_at")
   updatedAt DateTime? @updatedAt @map("updated_at")
 
   @@map("delivery_logs")
