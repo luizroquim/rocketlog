@@ -48,6 +48,10 @@ class DeliveryLogsController {
         user: true,
       },
     });
+
+    if(!delivery){
+      return response.status(404).json({message:"delivert not found"})
+    }
     //Esse usuário é um cliente? Esse id dele é diferente do ID do pedido?
     if (
       request.user?.role === "customer" &&
